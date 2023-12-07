@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { getAllHotels } from '../../services/service';
+import './../hotel/hotel.css';
+import './../../App.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AdminHotel = () => {
   const [data,setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log('AdminHotel');
     getAllHotels(setData,setLoading);
 
   }, []);
   return (
-    <div className='page'>AdminHotel
-    <button onClick={() => console.log(data)}>Click</button>
+    <div className='page black'>AdminHotel
+    <button className='btn' onClick={() => {navigate('./../newhotel')}}>Add Hotel</button>
     <div>
       {data.map((item) => (
         <div key={item.id}>

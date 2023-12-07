@@ -5,6 +5,8 @@ import Layout from './pages/Layout';
 import Hotel from './pages/hotel/Hotel';
 import AdminHotel from './pages/hotel/AdminHotel';
 import AdminLayout from './pages/AdminLayout';
+import AddNewHotel from './pages/hotel/AddNewHotel';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path='/' element={<Layout />}>
         <Route path="/hotels" element={<Hotel />} />
         <Route path="admin/hotels" element={<AdminHotel />} />
+        <Route path="admin/newhotel" element={<AddNewHotel />} />
+        <Route path="checkout" element={<CheckoutPage />} />
       </Route>
     </Routes>
     </div>
