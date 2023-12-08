@@ -40,16 +40,16 @@ const Hotel = () => {
           </div>
         </span>
       </div>
-      <div className=''>
+      <div className=' mt-5'>
         <Tabs
           defaultActiveKey="cabin"
           id="uncontrolled-tab-example"
-          className="mb-3 flex-space-evenly fs-2"
+          className="mb-3 flex-space-evenly fw-700"
+          style={{fontSize:'1.25rem'}}
         >
           <Tab eventKey="cabin" title="Cabin">
-            Tab content for Home
             <div className='flex flex-wrap p-4 center flex-space-evenly m-auto'>
-            {data.map((item) => (
+            {data.map((item,index) => (
 
 
               <div key={item.id}
@@ -69,7 +69,7 @@ const Hotel = () => {
                   <div class="card-text">
                     <b>{item.name}</b>
                     <div>{item.city}</div>
-                    <b> ${item.rate ? item.rate : Number(item._id)%100}</b> <span>night</span>
+                    <b> ${item.rate ? item.rate : item._id[index] +item._id[index+1]}</b> <span>night</span>
                   </div>
                   <button
                     type="button"
