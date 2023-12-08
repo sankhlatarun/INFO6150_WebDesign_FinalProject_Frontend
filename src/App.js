@@ -7,6 +7,10 @@ import AdminHotel from './pages/hotel/AdminHotel';
 import AdminLayout from './pages/AdminLayout';
 import AddNewHotel from './pages/hotel/AddNewHotel';
 import CheckoutPage from './pages/CheckoutPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NotFound from './pages/NotFound';
+import IndividualHotelPage from './pages/hotel/IndividualHotelPage';
+
 
 function App() {
   return (
@@ -17,6 +21,9 @@ function App() {
         <Route path="admin/hotels" element={<AdminHotel />} />
         <Route path="admin/newhotel" element={<AddNewHotel />} />
         <Route path="checkout" element={<CheckoutPage />} />
+        <Route path='hotel/:id' element={<IndividualHotelPage />} />
+        <Route path="/notfound" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
     </div>

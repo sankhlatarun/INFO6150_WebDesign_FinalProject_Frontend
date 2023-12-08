@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* overflow-x: hidden; */
+}
+
+body {
+  /* overflow-y: hidden; Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .App {
   text-align: center;
@@ -59,8 +65,8 @@
 .page{
   flex-grow: 1;
   max-width: 100vw;
-  max-height: 100vh;
-  height: 100vh;
+  min-height: 100vh;
+  /* height: 100vh; */
   overflow-x: hidden;
 }
 
@@ -135,4 +141,124 @@
   align-items: center;
   align-content: center;
   margin: auto !important;
+}
+
+.p-1{
+  padding: 0.5rem !important;
+}
+
+.p-2{
+  padding: 1rem !important;
+}
+
+.p-3{
+  padding: 1.5rem !important;
+}
+
+.p-4{
+  padding: 2rem !important;
+}
+
+.p-5{
+  padding: 2.5rem !important;
+}
+
+.card-box-design{
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  max-width: 380px;
+  border: none !important;
+  margin: 2rem 0!important;
+}
+
+.card-box-design:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.card-body{
+  margin-top: -10px;
+}
+
+.m-auto{
+  margin: auto !important;
+}
+
+.mtb-1{
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mtb-lr-auto{
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.mt-1{
+  margin-top: 1rem !important;
+}
+
+.mt-2{
+  margin-top: 2rem !important;
+}
+
+.mt-3{
+  margin-top: 3rem !important;
+}
+
+.mt-4{
+  margin-top: 4rem !important;
+} 
+
+.mt-5{
+  margin-top: 5rem !important;
+}
+
+.mt-6{
+  margin-top: 6rem !important;
+}
+
+.flex-grow-1{
+  flex-grow: 1;
+}
+
+.fs-2{
+  font-size: 1.5rem !important;
+}
+
+.fw-100{
+  font-weight: 100 !important;
+}
+
+.fw-200{
+  font-weight: 200 !important;
+}
+
+.fw-300{
+  font-weight: 300 !important;
+}
+
+.fw-400{
+  font-weight: 400 !important;
+}
+
+.fw-500{
+  font-weight: 500 !important;
+}
+
+.fw-600{
+  font-weight: 600 !important;
+}
+
+.fw-700{
+  font-weight: 700 !important;
+}
+
+.fw-800{
+  font-weight: 800 !important;
+}
+
+.fw-900{
+  font-weight: 900 !important;
 }

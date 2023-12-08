@@ -8,10 +8,11 @@ const AdminHotel = () => {
   const [data,setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [error,setError] = useState('');
 
   useEffect(() => {
     console.log('AdminHotel');
-    getAllHotels(setData,setLoading);
+    getAllHotels(setData,setLoading,setError);
 
   }, []);
   return (

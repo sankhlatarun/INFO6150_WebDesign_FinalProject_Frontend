@@ -8,11 +8,6 @@
   position: absolute;
 }
 
-@media screen and (max-width: 990px) {
-    .logo{
-        display: none;
-    }
-}
 
 @keyframes mymove {
   0% {
@@ -21,8 +16,8 @@
   }
 
   50% {
-    left: 50%;
-    top: 30%;
+    left: 57%;
+    top: 38%;
   }
 
   100% {
@@ -58,14 +53,16 @@
 
 .runner {
   position: relative;
-  font-size: 5rem;
+  font-size: 4rem;
   cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .content {
   position: absolute;
-  top: 50%;
-  left: 30%;
+  top: 70%;
+  left: 27%;
   transform: translate(-50%, -50%);
   overflow: hidden;
   font-family: "Lato", sans-serif;
@@ -347,7 +344,7 @@
 }
 
 .btn{
-  background-color: #6843ff;
+  background-color: #6843ff !important;
   color: black;
   border-radius: 5px;
   padding: 5px 20px;
@@ -357,14 +354,14 @@
   transition: 0.5s;
   margin: 10px;
   min-width: 120px;
-  border: 3px solid #6843ff;
+  border: 3px solid #6843ff !important;
   font-weight: 500;
 }
 
 .btn:hover{
-  background-color: black;
-  border: 3px solid #6843ff;
-  color: #6843ff;
+  background-color: black !important;
+  border: 3px solid #6843ff !important;
+  color: #6843ff !important;
 }
 
 .full_container{
@@ -441,5 +438,39 @@ label{
   display: inline-block;
   margin: 10px 30px;
   flex: 1;
+}
 
+@media screen and (max-width:990px){
+  .runner{
+    width: 90%;
+    font-size: 3rem;
+  }
+  .content{
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .logo{
+    width: 50%;
+    height: 20em;
+  } 
+
+  
+
+    @keyframes mymove {
+      0% {
+        left: 20%;
+        top: 70%;
+      }
+
+      50% {
+        left: 22%;
+        top: 67%;
+      }
+
+      100% {
+        left: 20%;
+        top: 70%;
+      }
+    }
 }
