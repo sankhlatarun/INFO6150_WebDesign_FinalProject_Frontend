@@ -21,6 +21,7 @@ import {
 
 
 } from '@mui/material';
+import '../../assets/flights.css';
 
 const Bookings = ({item}) => {
 

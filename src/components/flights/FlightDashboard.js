@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import carousel3 from '../../assets/flightImages/carousel3.jpg'
 import carousel2 from '../../assets/flightImages/carousel2.jpg'
 import carousel1 from '../../assets/flightImages/carousel1.jpg'
+import '../../assets/flights.css';
 
 import card1 from '../../assets/flightImages/card1.jpg'
 import card2 from '../../assets/flightImages/card2.jpg'
@@ -32,6 +33,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {data} from '../../assets/data/airportDetails';
 import { useNavigate } from 'react-router-dom';

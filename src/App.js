@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/flights.css';
 import CustomHeader from './components/CustomHeader';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
@@ -28,6 +28,10 @@ import Myticket from './pages/Myticket';
 import SelectBus from './pages/SelectBus';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminBus from './pages/AdminBus';
+import FlightDashBoard from './components/flights/FlightDashboard';
+import SearchFlights from './components/flights/SearchFlights';
+import UserBookings from './components/flights/UserBookings';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -95,7 +99,7 @@ function App() {
           <Route path='bookings' element={<UserBookings/>}/>
           
         </Route>
-        
+
       </Routes>
 
       <ToastContainer autoClose={3000} />

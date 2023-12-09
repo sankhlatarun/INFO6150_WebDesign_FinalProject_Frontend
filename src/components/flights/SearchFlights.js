@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import TextField from '@mui/material/TextField';
 import {useFormik} from 'formik';
+import '../../assets/flights.css';
 
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -23,6 +24,7 @@ import { Link, useLocation } from 'react-router-dom';
 import FlightCard from './flightCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../../assets/flights.css';
 
 function useQuery() {
   const { search } = useLocation();
@@ -173,9 +175,9 @@ const SearchFlights = () => {
 
       else if(filters.indexOf(3) !==-1 && item[0].seats.economy >= 1) {arr.push(item)}
 
-      else if(filters.indexOf(3) !==-1 && item[0].seats.business >= 1) {arr.push(item)}
+      else if(filters.indexOf(4) !==-1 && item[0].seats.business >= 1) {arr.push(item)}
 
-      else if(filters.indexOf(3) !==-1 && item[0].seats.first >= 1) {arr.push(item)}
+      else if(filters.indexOf(5) !==-1 && item[0].seats.first >= 1) {arr.push(item)}
 
       else if(priceRange > minPrice && item.length>1 && (item[0].price+item[1].price) <= priceRange) {arr.push(item)}
 

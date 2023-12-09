@@ -44,7 +44,7 @@ const CustomHeader = () => {
                 <Link className="nav-link m-2" to="/bus">Busses</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link m-2" href="./Assignment6-Flight/FlightIndex.html">Flights</a>
+                <a className="nav-link m-2" href="/flight">Flights</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link m-2" href="#contact">Contact US</a>

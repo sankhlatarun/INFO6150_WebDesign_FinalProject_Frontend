@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import TextField from '@mui/material/TextField';
+import '../../assets/flights.css';
 
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
