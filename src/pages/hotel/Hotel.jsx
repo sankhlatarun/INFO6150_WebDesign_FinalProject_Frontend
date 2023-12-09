@@ -98,7 +98,10 @@ const Hotel = () => {
           <Tab eventKey="island" title="Island">
             Tab content for Contact
           </Tab>
-          <Tab eventKey="Hotel" title="Hotel">
+          <Tab eventKey="hotel" title="Hotel">
+            Tab content for Contact
+          </Tab>
+          <Tab eventKey="resort" title="Resort">
             Tab content for Contact
           </Tab>
         </Tabs>

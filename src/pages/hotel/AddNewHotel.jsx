@@ -66,7 +66,7 @@ const AddNewHotel = () => {
     const [numberOfImages, setNumberOfImages] = useState(1);
     const [hotel, setHotel] = useState(initialHotelState);
     const [myImageList, setImageListPublicId] = useState('');
-    const roomEnabledHotelType = ['hotel', 'motel', 'resort', 'guest-house'];
+    const roomEnabledHotelType = ['hotel', 'motel', 'resort', 'guest-house','hostel'];
     const [dataNumber, setDataNumber] = useState(0);
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -178,7 +178,7 @@ const AddNewHotel = () => {
         dummyHotelData.languages = data.langueges;
         dummyHotelData.other = data.other;
         dummyHotelData.reviews = data.reviews;
-
+        dummyHotelData.rate = data.rate;
         console.log('Dummy Hotel Data:', dummyHotelData);
         setHotel(dummyHotelData);
         setDataNumber((i)=>i+1);
@@ -188,6 +188,10 @@ const AddNewHotel = () => {
         try{
             event.preventDefault();
             setHotel({...hotel,photos:myImageList});
+            if(hotel.name == ''){
+                alert('Please enter hotel name');
+                return;
+            }
             console.log('Hotel Data:', {...hotel,photos:myImageList});
             fetch('http://localhost:3001/hotels/addHotel', {
                 method: 'POST',
@@ -210,7 +214,7 @@ const AddNewHotel = () => {
     }
     return (
         <>
-            <div className='black full_container'>
+            <div className=' full_container'>
                 <div>
                     <h1>Add new Hotel</h1>
                     <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'right' }} onClick={loadDummyData}>Load Dummy Data</button>
@@ -315,22 +319,7 @@ const AddNewHotel = () => {
                         Description:
                         <input type="text" name="description" value={hotel.description} onChange={handleChange} required maxLength={255} />
                     </label>
-                    <label>
-                        Photos:
-                        {/* <input type="text" name="photos" value={hotel.photos} onChange={handleChange} required maxLength={255} /> */}
-                        {/* <button className='btn' onClick={()=>{setNumberOfImages((i)=>i+1)}}>Add Image</button> */}
-                        <CustomCloudinaryUpload setImagePublicId={setImageListPublicId} />
-
-                        {
-                        [...Array(myImageList.length).keys()].map((i)=>( 
-                            <>
-                            <CustomCloudinaryImage myImage={myImageList[i]} />
-                            <button onClick={()=>{  
-                                setImageListPublicId((myImageList)=>myImageList.filter((item,index)=>index!==i))    
-                                }} >X</button>
-                            </>
-                            )) }
-                    </label>
+                  
                     <label>
                         Policies:
                         <input type="text" name="policies" value={hotel.policies} onChange={handleChange} required maxLength={255} />
@@ -387,11 +376,12 @@ const AddNewHotel = () => {
 
 {roomEnabledHotelType.includes(hotel.type) && (
                     <div style={{ marginBottom: '30px' }}>
-                        Hourly Availability:
+                       <p>Hourly Availability:</p> 
                         {hotel.rooms[0].hourlyAvailability.map((slot) => (
                             <label key={slot.hour}>
-                                {slot.hour}:00 - {slot.hour + 1}:00
+                                <span>{slot.hour}:00 - {slot.hour + 1}:00</span>
                                 <input
+                                style={{ marginLeft: '10px' ,display:'inline-block'}}
                                     type="checkbox"
                                     checked={slot.available}
                                     onChange={() => handleHourlyAvailabilityChange(0, slot.hour)}
@@ -405,10 +395,30 @@ const AddNewHotel = () => {
                         <input type="checkbox" name="active" checked={hotel.active} onChange={handleChange} />
                     </label>
                     {/* ... Add other input fields for the hotel model */}
+                    <label>
+                        Photos:
+                        {/* <input type="text" name="photos" value={hotel.photos} onChange={handleChange} required maxLength={255} /> */}
+                        {/* <button className='btn' onClick={()=>{setNumberOfImages((i)=>i+1)}}>Add Image</button> */}
+                        <CustomCloudinaryUpload setImagePublicId={setImageListPublicId} />
+                        <div className='flex flex-wrap p-2 flex-column' style={{}}>
+                        {
+                        [...Array(myImageList.length).keys()].map((i)=>( 
+                            <div style={{width:'300px', maxHeight:'200px', margin:'10px',overflowY:'scroll',opacity:'0.8',border:'none'}}>
+                                   <button className='p-1 fw-500' style={{float:'right'}} onClick={()=>{  
+                                setImageListPublicId((myImageList)=>myImageList.filter((item,index)=>index!==i))    
+                                }} >Remove</button>
+                            <CustomCloudinaryImage myImage={myImageList[i]} />
+                         
+                            </div>
+                            )) }
+                            </div>
+                    </label>
+
+                </form>
+                <br/>
                     <button className='btn' onClick={(e)=>{
                         AddNewHotel(e);
                     }} style={{ display: 'block' }} type="submit">Add Hotel</button>
-                </form>
             </div>
         </>
     );
