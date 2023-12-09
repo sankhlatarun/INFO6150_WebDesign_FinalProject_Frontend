@@ -58,7 +58,7 @@ function Bookseat() {
     if (ticket.length > 0) {
       sessionStorage.setItem("busData", JSON.stringify(data));
       navigate({
-        pathname: `/details/${param.id}`,
+        pathname: `./../../../bus/details/${param.id}`,
         search: `?&date=${searchParams.get("date")}&ticket=${[
           ...ticket,
         ]}&amount=${ticket.length * ele}`,

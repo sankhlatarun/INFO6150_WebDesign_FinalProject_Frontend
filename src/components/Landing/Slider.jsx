@@ -332,7 +332,7 @@ function Slider() {
       });
       if (res.data.status === "success") {
         navigate({
-          pathname: "bus/selectbus",
+          pathname: "/bus/selectbus",
           search: `?from=${source}&to=${destination}&date=${date}`,
         });
       } else {

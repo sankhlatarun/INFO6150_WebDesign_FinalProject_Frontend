@@ -65,7 +65,7 @@ function SelectBus() {
 
   async function handlebook(ele) {
     navigate({
-      pathname: `/bookticket/${ele._id}`,
+      pathname: `./../../bus/bookticket/${ele._id}`,
       search: `?&date=${searchParams.get("date")}`,
     });
   }
