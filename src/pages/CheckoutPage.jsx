@@ -11,7 +11,7 @@ const CheckoutPage = ({type,dataArray,amount}) => {
       mode: "payment",
       amount: 100,
       currency: "usd",
-      clientSecret: 'pi_3OLO21Eub5KRjd221wOwREtp_secret_xrJNpK3Gsqx6QWIaFyysJyQC5',
+      clientSecret: 'pi_3OLSq4Eub5KRjd220zZQvpEW_secret_QsSDGq7HEzI9Nx3jnkZJUt3UW',
       // Fully customizable with appearance API.
       appearance: {
         /*...*/
