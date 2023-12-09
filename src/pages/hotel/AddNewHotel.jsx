@@ -198,7 +198,7 @@ const AddNewHotel = () => {
             <div className=' full_container'>
                 <div>
                 <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'left' }} onClick={()=> {
-                navigate('./../adminhotel')
+                navigate('./../hotels')
             }}>Back to Dashboard</button>
                     <h1>Add new Hotel</h1>
                     <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'right' }} onClick={loadDummyData}>Load Dummy Data</button>

@@ -146,7 +146,7 @@ const UpdateHotel = () => {
         <div>
         <h1 className='m-3 fw-900'>UPDATE   {"   "} HOTELS</h1>
             <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'right' }} onClick={()=> {
-                navigate('./../adminhotel')
+                navigate('./../../hotels')
             }}>Back to Dashboard</button>
         </div>
         <form style={{ marginTop: '50px' }} className='flex flex-wrap flex-start' >
