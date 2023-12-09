@@ -39,7 +39,7 @@ const Hotel = () => {
     getAllHotels(setData, setLoading, setError);
     (async ()=>{
     try {
-      const data = await fetch("http://localhost:3001/hotels/getHotels");
+      const data = await fetch("http://dream-travels.onrender.com/hotels/getHotels");
       const response = await data.json();
       setAllData(response);
       setLoading(false);

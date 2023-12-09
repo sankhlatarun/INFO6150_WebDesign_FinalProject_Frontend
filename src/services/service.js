@@ -22,7 +22,9 @@ function getServicesForStripePayment(amount) {
 
 async function getAllHotels(setData, setLoading, setError) {
   try {
-    const data = await fetch("http://localhost:3001/hotels/getHotels");
+    
+    
+    const data = await fetch("http://dream-travels.onrender.com/hotels/getHotels");
     const response = await data.json();
     setData(response);
     setLoading(false);

@@ -174,7 +174,7 @@ const AddNewHotel = () => {
                 return;
             }
             console.log('Hotel Data:', {...hotel,photos:myImageList});
-            fetch('http://localhost:3001/hotels/addHotel', {
+            fetch('http://dream-travels.onrender.com/hotels/addHotel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

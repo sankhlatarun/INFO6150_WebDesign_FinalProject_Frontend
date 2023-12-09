@@ -121,7 +121,7 @@ const UpdateHotel = () => {
                 return;
             }
             console.log('Hotel Data:', {...hotel,photos:myImageList});
-            fetch('http://localhost:3001/hotels/updateHotel/'+hotel._id, {
+            fetch('http://dream-travels.onrender.com/hotels/updateHotel/'+hotel._id, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
