@@ -33,7 +33,7 @@ const Hotel = () => {
   const TreeHouse = ['country-house', 'holiday-home', 'cabin'];
   const Mansion = ['homestay', 'apartment'];
   const Island = ['holiday-home', 'guest-house', 'resort'];
-  const Resort = ['', 'hotel'];
+  const Resort = ['holiday-home', 'hotel','cabin'];
   useEffect(() => {
     console.log('AdminHotel');
     getAllHotels(setData, setLoading, setError);
@@ -153,7 +153,7 @@ const Hotel = () => {
                       <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
-                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                        <b> ${item.rate ? item.rate : item._id[1] + item._id[1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
@@ -374,9 +374,9 @@ const Hotel = () => {
               </div>)
               : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
 
-                {Resort?.map((item, index) => (
+                {data?.map((item, index) => (
 
-                  Mansion.includes(item?.type) &&
+Resort.includes(item?.type) &&
                   <div key={item.id}
                     className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
