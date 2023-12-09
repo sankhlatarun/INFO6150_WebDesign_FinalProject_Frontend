@@ -36,7 +36,8 @@ const IndividualHotelPage = () => {
 
   function bookHotel() {
     const notify = CustomToast("Added to Bookings");
-    notify();
+    navigate('./../../checkout/' +hotel.rate );
+    notify();   
   }
   return (
     <div className='page flex-col pt-4'>
