@@ -20,7 +20,7 @@ const UserBookings = () => {
 
     useEffect(() => {
 
-        fetch("https://dream-travels.onrender.com/flights/bookings/getAirlines",{
+        fetch(`https://dream-travels.onrender.com/flights/bookings/getAirlines/${userid}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
