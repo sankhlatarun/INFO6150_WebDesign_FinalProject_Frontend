@@ -72,7 +72,7 @@ const SearchFlights = () => {
     const date = new Date(dep).toISOString();
     console.log("dep: " + date);
 
-    fetch(`http://localhost:3001/flights/flights/getFlightsByDetails/${from}/${to}/${date}}`, 
+    fetch(`https://dream-travels.onrender.com/flights/flights/getFlightsByDetails/${from}/${to}/${date}}`, 
     {method: 'GET',
     headers: {
       'Content-Type': 'application/json',
