@@ -55,7 +55,7 @@ function App() {
           <Route path="/hotels" element={<Hotel />} />
           <Route path="admin/hotels" element={<AdminHotel />} />
           <Route path="admin/newhotel" element={<AddNewHotel />} />
-          <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="checkout/:amount" element={<CheckoutPage />} />
           <Route path='hotel/:id' element={<IndividualHotelPage />} />
           <Route path="admin/updatehotel/:id" element={<UpdateHotel />} />
 
