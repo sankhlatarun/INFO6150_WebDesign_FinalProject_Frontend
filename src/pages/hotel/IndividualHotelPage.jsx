@@ -26,7 +26,6 @@ const IndividualHotelPage = () => {
 
   useMemo(() => {
     data.forEach(element => {
-      // console.log(element._id);
       if (element._id == par.id) {
         setHotel(element);
       }
@@ -52,7 +51,7 @@ const IndividualHotelPage = () => {
               <img
                 src={defaultBackupImage}
                 class="card-img-top hotel-img"
-                alt="..."
+                
               /> :
               <>
                 {hotel.photos.map((item) => (

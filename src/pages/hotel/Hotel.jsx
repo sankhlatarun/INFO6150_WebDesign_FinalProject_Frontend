@@ -91,8 +91,8 @@ const Hotel = () => {
         </span>
       </div>
       <div className=' mt-5'>
-        <div class="container mt-3">
-          <div class="row justify-content-center" style={{border: '2px solid',
+        <div className="container mt-3">
+          <div className="row justify-content-center" style={{border: '2px solid',
     borderColor: 'pink',
     borderRadius: '70px'}}>
             <input
@@ -101,7 +101,7 @@ const Hotel = () => {
                 setSearch(e.target.value);
 
               }}
-              class="form-control bg-transparent rounded-0 border-bottom border-0 ps-3 pt-0 pb-1 m-3 search-input"
+              className="form-control bg-transparent rounded-0 border-bottom border-0 ps-3 pt-0 pb-1 m-3 search-input"
               style={{
                 outline: 'none',
                 display: 'inline',
@@ -135,32 +135,29 @@ const Hotel = () => {
 
                   Hotel.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details
@@ -187,32 +184,29 @@ const Hotel = () => {
 
                   Cabin.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5 fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details
@@ -237,32 +231,29 @@ const Hotel = () => {
 
                   TreeHouse.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details
@@ -289,32 +280,29 @@ const Hotel = () => {
 
                   Mansion.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details
@@ -340,32 +328,29 @@ const Hotel = () => {
 
                   Island.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details
@@ -392,32 +377,29 @@ const Hotel = () => {
 
                   Mansion.includes(item?.type) &&
                   <div key={item.id}
-                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                     style={{ width: "25rem" }}
                   >
                     {item.photos.length == 0 ?
                       <img
                         src={defaultBackupImage}
                         style={{ minHeight: '20rem' }}
-                        class="card-img-top hotel-img"
+                        className="card-img-top hotel-img"
                         alt="..."
                       /> :
                       <CustomCloudinaryImage myImage={item.photos[0]} />}
                     <div
-                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                      className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                     >
-                      <div class="card-text">
+                      <div className="card-text">
                         <b>{item.name}</b>
                         <div>{item.city}</div>
                         <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
                       </div>
                       <button
                         type="button"
-                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                        data-bs-target="#exampleModal"
-                        data-toggle="tooltip"
-                        data-bs-toggle="modal"
-                        data-placement="top" title="Reserve Booking"
+                        className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2  fs-0-5 fs-0-5"
+                      
                         onClick={() => { navigate('./../hotel/' + item._id) }}
                       >
                         View Details

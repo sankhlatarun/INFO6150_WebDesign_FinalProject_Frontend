@@ -33,32 +33,29 @@ const AdminHotel = () => {
 
 
               <div key={item.id}
-                class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                className="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
                 style={{ width: "25rem" }}
               >
                 { item.photos.length == 0 ?
                  <img
                   src={defaultBackupImage}
                   style={{minHeight:'20rem'}}
-                  class="card-img-top hotel-img"
+                  className="card-img-top hotel-img"
                   alt="..."
                 />:
                 <CustomCloudinaryImage  myImage={item.photos[0]} />}
                 <div
-                  class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                  className="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
                 >
-                  <div class="card-text">
+                  <div className="card-text">
                     <b>{item.name}</b>
                     <div>{item.city}</div>
                     <b> ${item.rate ? item.rate : item._id[index] +item._id[index+1]}</b> <span>night</span>
                   </div>
                   <button
                     type="button"
-                    class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                    data-bs-target="#exampleModal"
-                    data-toggle="tooltip"
-                    data-bs-toggle="modal"
-                    data-placement="top" title="Reserve Booking"
+                    className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2 fs-0"
+           
                     onClick={()=>{navigate('./../updatehotel/'+item._id) }}
                   >
                     Update Details
