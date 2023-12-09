@@ -9,6 +9,7 @@ import qatar from '../../assets/flightImages/qatar.png';
 import AirIndia from '../../assets/flightImages/AirIndia.png';
 import vistara from '../../assets/flightImages/vistara.png';
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
 import {
     TextField,  
     Button,
@@ -32,6 +33,7 @@ const Bookings = ({item}) => {
     const [price, setPrice] = useState(0);
 
     const [initialValues, setInitialValues] = useState({});
+    const userid = useSelector((state) => state.auth.data.userid);
 
     const handleSubmit = async(values) => {
         
@@ -70,7 +72,7 @@ const Bookings = ({item}) => {
         amount += values.bags * item[0].free_luggage.price_checkin;
 
         const requestBody = {
-            userId:"6567f34f652bfead3d3dd41c",
+            userId: userid,
 
             bookingDate: item[0].departure,
 
@@ -94,7 +96,7 @@ const Bookings = ({item}) => {
         }
 
         try{
-            const booking = await fetch('http://localhost:3001/flights/bookings/flightBooking', {
+            const booking = await fetch('https://dream-travels.onrender.com/flights/bookings/flightBooking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -102,7 +104,7 @@ const Bookings = ({item}) => {
             body: JSON.stringify(requestBody),
         });
 
-        const update1 = await fetch(`http://localhost:3001/flights/flights/updateFlight/${item[0]._id}`,{
+        const update1 = await fetch(`https://dream-travels.onrender.com/flights/updateFlight/${item[0]._id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -121,7 +123,7 @@ const Bookings = ({item}) => {
 
         
 
-        const update2 = item.length>1 ? await fetch(`http://localhost:3001/flights/flights/updateFlight/${item[1]._id}`,{
+        const update2 = item.length>1 ? await fetch(`https://dream-travels.onrender.com/flights/flights/updateFlight/${item[1]._id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

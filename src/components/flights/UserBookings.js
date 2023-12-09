@@ -10,15 +10,17 @@ import emirates from '../../assets/flightImages/emirates.png';
 import qatar from '../../assets/flightImages/qatar.png';
 import AirIndia from '../../assets/flightImages/AirIndia.png';
 import vistara from '../../assets/flightImages/vistara.png';
+import { useDispatch, useSelector } from "react-redux";
 
 const UserBookings = () => {
 
     const [bookings, setBookings] = useState([]);
     const [flights, setFlight] = useState([]);
+    const userid = useSelector((state) => state.auth.data.userid);
 
     useEffect(() => {
 
-        fetch("http://localhost:3001/flights/bookings/getAirlines",{
+        fetch("https://dream-travels.onrender.com/flights/bookings/getAirlines",{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

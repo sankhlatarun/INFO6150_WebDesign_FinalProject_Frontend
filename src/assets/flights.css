@@ -15,6 +15,13 @@
     background-attachment: fixed;
 }
 
+.datepicker{
+
+    max-width: 70%;
+    border: 2ox solid black;
+    text-decoration: none;
+}
+
 .bookCover{
     background-color: rgb(245, 245, 246);
     border-radius  : 10px;
