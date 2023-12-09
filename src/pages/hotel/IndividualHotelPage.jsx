@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getAllHotels } from '../../services/service';
 import defaultBackupImage from './../../assets/hotel/home-2.jpg';
+
+// import defaultBackupImag1 from './../../assets/hotel/';
 import CustomCloudinaryImage from '../../components/CustomCloudinaryImage';
 
 
@@ -31,6 +33,7 @@ const IndividualHotelPage = () => {
 
   return (
     <div className='page flex-col'>
+      <button className='btn' onClick={() => {navigate('./../../hotels')}}>Back to Dashboard</button>
       {loading 
         ? <div>Loading...</div>
         : <div className='flex flex-wrap'>

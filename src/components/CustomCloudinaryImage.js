@@ -6,7 +6,7 @@ const CustomCloudinaryImage = ({myImage}) => {
 
   return (
     <AdvancedImage
-    style={{ maxWidth: "100%" }}
+    style={{ maxWidth: "100%", minHeight:'20rem' }}
     cldImg={cld.image(myImage)}
     // plugins={[responsive(), placeholder()]}
   />

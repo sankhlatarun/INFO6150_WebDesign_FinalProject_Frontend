@@ -282,3 +282,7 @@ body {
 .fw-900{
   font-weight: 900 !important;
 }
+
+.uppercase{
+  text-transform: uppercase;
+}

@@ -4,6 +4,7 @@ import './../../App.css';
 import CustomCloudinaryUpload from '../../components/CustomCloudinaryUpload';
 import CustomCloudinaryImage from '../../components/CustomCloudinaryImage';
 import { getHotelFakeData } from '../../services/service';
+import { useNavigate } from 'react-router-dom';
 const AddNewHotel = () => {
     const initialHotelState = {
         name: '',
@@ -68,6 +69,7 @@ const AddNewHotel = () => {
     const [myImageList, setImageListPublicId] = useState('');
     const roomEnabledHotelType = ['hotel', 'motel', 'resort', 'guest-house','hostel'];
     const [dataNumber, setDataNumber] = useState(0);
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setHotel({ ...hotel, [name]: value });
@@ -89,27 +91,6 @@ const AddNewHotel = () => {
         updatedRooms[index].hourlyAvailability[hourIndex].available = !updatedRooms[index].hourlyAvailability[hourIndex].available;
         setHotel({ ...hotel, rooms: updatedRooms });
     };
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log('Hotel Data:', hotel);
-    //     // Add logic to send the data to your server
-    //     // fetch('YOUR_API_ENDPOINT', {
-    //     //     method: 'POST',
-    //     //     headers: {
-    //     //         'Content-Type': 'application/json',
-    //     //     },
-    //     //     body: JSON.stringify(hotel),
-    //     // })
-    //     //     .then(response => response.json())
-    //     //     .then(data => {
-    //     //         console.log('Hotel added successfully:', data);
-    //     //         // Optionally, reset the form or perform other actions after successful submission
-    //     //         setHotel(initialHotelState);
-    //     //     })
-    //     //     .catch(error => console.error('Error adding hotel:', error));
-    // };
-
     const loadDummyData = () => {
         // Logic to generate and set dummy data
         const dummyHotelData = {
@@ -216,6 +197,9 @@ const AddNewHotel = () => {
         <>
             <div className=' full_container'>
                 <div>
+                <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'left' }} onClick={()=> {
+                navigate('./../adminhotel')
+            }}>Back to Dashboard</button>
                     <h1>Add new Hotel</h1>
                     <button className='btn' style={{ marginLeft: 'auto', marginRight: '10px', float: 'right' }} onClick={loadDummyData}>Load Dummy Data</button>
                 </div>

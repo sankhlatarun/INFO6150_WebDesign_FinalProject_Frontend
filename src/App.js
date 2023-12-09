@@ -10,6 +10,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './pages/NotFound';
 import IndividualHotelPage from './pages/hotel/IndividualHotelPage';
+import UpdateHotel from './pages/hotel/UpdateHotel';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="admin/newhotel" element={<AddNewHotel />} />
         <Route path="checkout" element={<CheckoutPage />} />
         <Route path='hotel/:id' element={<IndividualHotelPage />} />
+        <Route path="admin/updatehotel/:id" element={<UpdateHotel />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Route>

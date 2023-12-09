@@ -16,11 +16,61 @@ const Hotel = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
+  const [allData, setAllData] = useState([]);
+  const roles = [];
 
+  // data.map((item) => {
+  //   if (roles.indexOf(item.type) === -1) {
+  //     roles.push(item.type)
+  //   }
+  // })
+  // console.log(roles);
+  // const All = ['hotel', 'homestay', 'guest-house', 'resort', 'hostel', 'apartment', 'cabin', 'motel', 'holiday-home', 'country-house'];
+
+  const Cabin = ['cabin', 'guest-house', 'apartment'];
+  const Hotel = ['hotel', 'motel'];
+  const TreeHouse = ['country-house', 'holiday-home', 'cabin'];
+  const Mansion = ['homestay', 'apartment'];
+  const Island = ['holiday-home', 'guest-house', 'resort'];
+  const Resort = ['', 'hotel'];
   useEffect(() => {
     console.log('AdminHotel');
     getAllHotels(setData, setLoading, setError);
+    (async ()=>{
+    try {
+      const data = await fetch("http://localhost:3001/hotels/getHotels");
+      const response = await data.json();
+      setAllData(response);
+      setLoading(false);
+      console.log(response);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  })();
   }, []);
+
+  function searchContent() {
+    console.log('search');
+    
+    console.log([...allData.filter((item, index) => {
+      if (item?.name.toLowerCase().includes(search.toLowerCase()) || item.city.toLowerCase().includes(search.toLowerCase())
+        || item.address.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase())
+        || item.state.toLowerCase().includes(search.toLowerCase()) || item.amenities.toLowerCase().includes(search.toLowerCase())) {
+        console.log('found');
+        return item;
+      }
+    })]);
+    setData([...allData.map((item, index) => {
+      if (item.name.toLowerCase().includes(search.toLowerCase()) || item.city.toLowerCase().includes(search.toLowerCase())
+        || item.address.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase())
+        || item.state.toLowerCase().includes(search.toLowerCase()) || item.amenities.toLowerCase().includes(search.toLowerCase())) {
+        console.log('found');
+        return item;
+      }
+    })]);
+  }
   return (
 
 
@@ -41,73 +91,350 @@ const Hotel = () => {
         </span>
       </div>
       <div className=' mt-5'>
+        <div class="container mt-3">
+          <div class="row justify-content-center" style={{border: '2px solid',
+    borderColor: 'pink',
+    borderRadius: '70px'}}>
+            <input
+              type="text"
+              onChange={(e) => {
+                setSearch(e.target.value);
+
+              }}
+              class="form-control bg-transparent rounded-0 border-bottom border-0 ps-3 pt-0 pb-1 m-3 search-input"
+              style={{
+                outline: 'none',
+                display: 'inline',
+                maxWidth: '600px',
+                minWidth: '200px'
+              }}
+              placeholder="Destination, hotel, or keyword"
+            />
+            <span style={{ padding: '0', margin: '0', marginTop: '10px' }} onClick={() => {
+              console.log('search');
+              searchContent();
+            }} className='search_btn'>🔍</span>
+          </div>
+        </div>
         <Tabs
-          defaultActiveKey="cabin"
+          defaultActiveKey="hotel"
           id="uncontrolled-tab-example"
           className="mb-3 flex-space-evenly fw-700"
-          style={{fontSize:'1.25rem'}}
+          style={{ fontSize: '1.25rem' }}
         >
-          <Tab eventKey="cabin" title="Cabin">
-            <div className='flex flex-wrap p-4 center flex-space-evenly m-auto'>
-            {data.map((item,index) => (
+          <Tab eventKey="hotel" title="Hotel">
 
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              :
+              <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
 
-              <div key={item.id}
-                class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
-                style={{ width: "25rem" }}
-              >
-                { item.photos.length == 0 ?
-                 <img
-                  src={defaultBackupImage}
-                  class="card-img-top hotel-img"
-                  alt="..."
-                />:
-                <CustomCloudinaryImage myImage={item.photos[0]} />}
-                <div
-                  class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
-                >
-                  <div class="card-text">
-                    <b>{item.name}</b>
-                    <div>{item.city}</div>
-                    <b> ${item.rate ? item.rate : item._id[index] +item._id[index+1]}</b> <span>night</span>
-                  </div>
-                  <button
-                    type="button"
-                    class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
-                    data-bs-target="#exampleModal"
-                    data-toggle="tooltip"
-                    data-bs-toggle="modal"
-                    data-placement="top" title="Reserve Booking"
-                    onClick={()=>{navigate('./../hotel/'+item._id) }}
+                {data?.map((item, index) => (
+
+                  Hotel.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
                   >
-                    View Details
-                  </button>
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
 
-                </div>
+                    </div>
+                  </div>
+                ))
+
+                }
               </div>
+            }
 
-            ))}
-</div>
+          </Tab>
+          <Tab eventKey="cabin" title="Cabin">
+
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+
+                {data?.map((item, index) => (
+
+                  Cabin.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
+                  >
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
+
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            }
           </Tab>
           <Tab eventKey="tree house" title="Tree House">
-            Tab content for Profile
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+
+                {data?.map((item, index) => (
+
+                  TreeHouse.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
+                  >
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
+
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            }
           </Tab>
           <Tab eventKey="mansion" title="Mansion">
-            Tab content for Contact
+
+
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+
+                {data?.map((item, index) => (
+
+                  Mansion.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
+                  >
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
+
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            }
           </Tab>
           <Tab eventKey="island" title="Island">
-            Tab content for Contact
+
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+
+                {data?.map((item, index) => (
+
+                  Island.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
+                  >
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
+
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            }
           </Tab>
-          <Tab eventKey="hotel" title="Hotel">
-            Tab content for Contact
-          </Tab>
+
           <Tab eventKey="resort" title="Resort">
-            Tab content for Contact
+
+            {data.length == 0 ?
+              (<div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+                <h1>No Hotels Found</h1>
+              </div>)
+              : <div className='flex flex-wrap p-4 center flex-space-evenly m-auto h-100'>
+
+                {Resort?.map((item, index) => (
+
+                  Mansion.includes(item?.type) &&
+                  <div key={item.id}
+                    class="card m-4 flex-grow-1 border-secondary-subtle rounded-top card-box-design"
+                    style={{ width: "25rem" }}
+                  >
+                    {item.photos.length == 0 ?
+                      <img
+                        src={defaultBackupImage}
+                        style={{ minHeight: '20rem' }}
+                        class="card-img-top hotel-img"
+                        alt="..."
+                      /> :
+                      <CustomCloudinaryImage myImage={item.photos[0]} />}
+                    <div
+                      class="card-body mb-0 align-items-end d-flex justify-content-between g-col-6"
+                    >
+                      <div class="card-text">
+                        <b>{item.name}</b>
+                        <div>{item.city}</div>
+                        <b> ${item.rate ? item.rate : item._id[index] + item._id[index + 1]}</b> <span>night</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2"
+                        data-bs-target="#exampleModal"
+                        data-toggle="tooltip"
+                        data-bs-toggle="modal"
+                        data-placement="top" title="Reserve Booking"
+                        onClick={() => { navigate('./../hotel/' + item._id) }}
+                      >
+                        View Details
+                      </button>
+
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            }
           </Tab>
         </Tabs>
 
       </div>
-      <div className='page black' style={{   zIndex: '-1',position: 'absolute',height: '100px',width: '100%',top: '200%'}}>
+      <div className='page black' style={{ zIndex: '-1', position: 'absolute', maxHeight: '100px', width: '100%', top: '200%' }}>
 
       </div>
     </div>

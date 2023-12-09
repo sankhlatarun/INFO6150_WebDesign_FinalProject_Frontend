@@ -345,7 +345,7 @@
 
 .btn{
   background-color: #6843ff !important;
-  color: black;
+  color: white;
   border-radius: 5px;
   padding: 5px 20px;
   font-size: 20px;
@@ -359,7 +359,7 @@
 }
 
 .btn:hover{
-  background-color: black !important;
+  background-color: white !important;
   border: 3px solid #6843ff !important;
   color: #6843ff !important;
 }
@@ -438,6 +438,42 @@ label{
   display: inline-block;
   margin: 10px 30px;
   flex: 1;
+}
+
+.search-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.search-input:focus{
+  outline: none;
+}
+
+.search-input input:focus{
+  outline: none;
+}
+
+.search_btn{
+    /* background-color: #6843ff !important; */
+    color: white;
+    border-radius: 50%;
+    padding: 0px;
+    font-size: 21px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 10px;
+    width: 32px !important;
+    /* border: 3px solid #6843ff !important; */
+    font-weight: 500;
+
+}
+
+.h-100{
+  min-height: 50vh;
 }
 
 @media screen and (max-width:990px){
