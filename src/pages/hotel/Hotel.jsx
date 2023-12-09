@@ -10,6 +10,7 @@ import { CheckoutForm } from '../../components/CheckoutForm';
 import { useNavigate } from 'react-router-dom';
 import { Tab, Tabs } from 'react-bootstrap';
 import defaultBackupImage from './../../assets/hotel/home-2.jpg';
+import Cookies from 'js-cookie';
 
 const Hotel = () => {
   const [data, setData] = useState([]);
@@ -19,6 +20,10 @@ const Hotel = () => {
   const [search, setSearch] = useState('');
   const [allData, setAllData] = useState([]);
   const roles = [];
+
+  if(!Cookies.get("jwttoken")){
+      navigate('./../signup');
+  }
 
   // data.map((item) => {
   //   if (roles.indexOf(item.type) === -1) {

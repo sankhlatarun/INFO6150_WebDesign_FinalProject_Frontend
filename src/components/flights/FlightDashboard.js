@@ -39,6 +39,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {data} from '../../assets/data/airportDetails';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/flights.css';
+import Cookies from 'js-cookie';
 
 const FlightDashBoard = () => {
 
@@ -55,6 +56,11 @@ const FlightDashBoard = () => {
     const [oneway, setOneWay] = useState('oneway');
 
     const navigate = useNavigate();
+
+    if(!Cookies.get("jwttoken")){
+      navigate('./../signup');
+  }
+
 
     const handleTo = (event) => {
       setTo(event.target.value);

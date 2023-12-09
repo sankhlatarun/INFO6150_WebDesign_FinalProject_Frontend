@@ -9,9 +9,16 @@ import { default as Section } from "../components/Landing/Section";
 import { default as Services } from "../components/Landing/Services";
 import { default as Slider } from "../components/Landing/Slider";
 import { removeall } from "../Redux/ticket/ticket.action";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 function BusHome() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  if(!Cookies.get("jwttoken")){
+    navigate('./../signup');
+}
+
   useEffect(() => {
     dispatch(removeall());
   }, []);
