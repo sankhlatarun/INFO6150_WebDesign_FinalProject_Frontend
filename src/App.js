@@ -11,7 +11,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './pages/NotFound';
 import IndividualHotelPage from './pages/hotel/IndividualHotelPage';
 import UpdateHotel from './pages/hotel/UpdateHotel';
+import 'react-toastify/dist/ReactToastify.css';
 
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+    <ToastContainer />
+
     </div>
   );
 }
