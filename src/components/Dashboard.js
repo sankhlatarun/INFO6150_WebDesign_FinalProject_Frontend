@@ -7,6 +7,7 @@ import test1 from '../assets/DashboardImages/test1.png'
 import test2 from '../assets/DashboardImages/test2.png'
 import test3 from '../assets/DashboardImages/test3.png'
 import test4 from '../assets/DashboardImages/test4.png'
+import '../assets/CSS/DashboardStyle.css'
 
 
 export default function Dashboard() {
