@@ -8,11 +8,9 @@ import Dashboard from './components/Dashboard';
 import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
 import { useState } from 'react';
-import { Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Hotel from './pages/hotel/Hotel';
 import AdminHotel from './pages/hotel/AdminHotel';
-import AdminLayout from './pages/AdminLayout';
 
 function App() {
   const defaultUser ={"email":"",
@@ -39,17 +37,12 @@ function App() {
         {/* <Route path = '/flight' >
           <Route index element={ <FlightDashBoard/>} />
           <Route path='/flight/search' element={<SearchFlights/>}/>
-          
         </Route> */}
-       
         <Route path="/hotels" element={<Hotel />} />
         <Route path="admin/hotels" element={<AdminHotel />} />
         </Route>
      </Routes>
-        <CustomFooter/>
-
-
-    
+        {/* <CustomFooter/> */}
     {/* </BrowserRouter> */}
     </div>
   );
