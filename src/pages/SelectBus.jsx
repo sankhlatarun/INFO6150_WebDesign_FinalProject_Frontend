@@ -9,6 +9,7 @@ import { removeall } from "../Redux/ticket/ticket.action";
 import Filters from "../components/Seats/Filters";
 import { useDispatch, useSelector } from "react-redux";
 import { error } from "../Utils/notification";
+import Cookies from "js-cookie";
 function SelectBus() {
   let [searchParams, setSearchParams] = useSearchParams();
   console.log(searchParams);
@@ -16,6 +17,9 @@ function SelectBus() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  if(!Cookies.get("jwttoken")){
+    navigate('./../signup');
+}
 
   const dataredux = useSelector((state) => state.filter.data);
 

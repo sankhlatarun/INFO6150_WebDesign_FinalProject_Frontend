@@ -87,7 +87,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-12 col-lg-4">
+                    <div className="col-12 col-md-12 col-lg-4  p-1">
                         <div className="card text-white text-center bg-dark pb-2">
                             <div className="card-body">
                                 <i className="bi bi-airplane-engines"></i>
@@ -99,7 +99,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-12 col-lg-4">
+                    <div className="col-12 col-md-12 col-lg-4 p-1">
                         <div className="card text-white text-center bg-dark pb-2">
                             <div className="card-body">
                                 <i className="bi bi-emoji-heart-eyes"></i>
@@ -111,7 +111,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-12 col-lg-4">
+                    <div className="col-12 col-md-12 col-lg-4  p-1">
                         <div className="card text-white text-center bg-dark pb-2">
                             <div className="card-body">
                                 <i className="bi bi-balloon-heart"></i>
@@ -137,7 +137,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <div className="row">
-                <div className="clo-12 col-md-6 col-lg-3">
+                <div className="clo-12 col-md-6 col-lg-3 p-1">
                   <div className="card text-center">
                     <img src={test1} alt="" className="img-fluid rounded-circle"/>
                     <h3 className="card-title py-2">Jack Denials</h3>
@@ -150,7 +150,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                 </div>
-                <div className="clo-12 col-md-6 col-lg-3">
+                <div className="clo-12 col-md-6 col-lg-3 p-1">
                   <div className="card text-center">
                     <img src={test2} alt="" className="img-fluid rounded-circle"/>
                     <h3 className="card-title py-2">Harry Potter</h3>
@@ -163,7 +163,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                 </div>
-                <div className="clo-12 col-md-6 col-lg-3">
+                <div className="clo-12 col-md-6 col-lg-3 p-1">
                   <div className="card text-center">
                     <img src={test3} alt="" className="img-fluid rounded-circle"/>
                     <h3 className="card-title py-2">Thomas Cook</h3>
@@ -176,7 +176,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                 </div>
-                <div className="clo-12 col-md-6 col-lg-3">
+                <div className="clo-12 col-md-6 col-lg-3 p-1">
                   <div className="card text-center">
                     <img src={test4} alt="" className="img-fluid rounded-circle"/>
                     <h3 className="card-title py-2">Shizuka Minamoto</h3>
