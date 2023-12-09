@@ -54,7 +54,7 @@ const AdminHotel = () => {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2 fs-0"
+                    className="btn btn-dark ps-4 pe-4 fw-semibold float-end m-2 fs-0-5"
            
                     onClick={()=>{navigate('./../updatehotel/'+item._id) }}
                   >

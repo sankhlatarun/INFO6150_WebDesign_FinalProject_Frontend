@@ -54,42 +54,42 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path='hotel/:id' element={<IndividualHotelPage />} />
           <Route path="admin/updatehotel/:id" element={<UpdateHotel />} />
-         
-       
-   
+
+
+
           <Route path="signin" element={<Signin />}></Route>
           <Route path="signup" element={<Signup />}></Route>
 
           <Route path="/hotels" element={<Hotel />} />
-            <Route path="/bus" element={<BusHome />}></Route>
-            <Route path="/bus/selectbus" element={<SelectBus />} />
-            <Route path="/bus/bookticket/:id" element={
-                <Private>
-                  <Bookseat />
-                </Private>
-              }
-            />
-            <Route path="/bus/details/:id"  element={
-                <Private>
-                  <Details />
-                </Private>
-              }
-            />
-            <Route path="/bus/myticket" element={
-                <Private>
-                  <Myticket />
-                </Private>
-              }
-            />
-            <Route path="admin/hotels" element={<AdminHotel />} />
-            <Route path="admin" element={<AdminDashboard />} />
-              <Route path="admin/bus" element={<AdminBus />} />
-               <Route path="/notfound" element={<NotFound />} />
-               <Route path="*" element={<NotFound />} />
+          <Route path="/bus" element={<BusHome />}></Route>
+          <Route path="/bus/selectbus" element={<SelectBus />} />
+          <Route path="/bus/bookticket/:id" element={
+            <Private>
+              <Bookseat />
+            </Private>
+          }
+          />
+          <Route path="/bus/details/:id" element={
+            <Private>
+              <Details />
+            </Private>
+          }
+          />
+          <Route path="/bus/myticket" element={
+            <Private>
+              <Myticket />
+            </Private>
+          }
+          />
+          <Route path="admin/hotels" element={<AdminHotel />} />
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/bus" element={<AdminBus />} />
+          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 
-     <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={3000} />
 
     </div>
   );
