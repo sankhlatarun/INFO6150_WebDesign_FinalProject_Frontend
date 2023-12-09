@@ -7,11 +7,12 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import CustomToast from './CustomToast';
 
 export const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const clientSecret ='pi_3OK6OVEub5KRjd220VDewgZb_secret_x3e3IaWEub0PjiXYhYN678Qm6';
+  // const clientSecret ='pi_3OK6OVEub5KRjd220VDewgZb_secret_x3e3IaWEub0PjiXYhYN678Qm6';
 
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -58,6 +59,8 @@ export const CheckoutForm = () => {
         console.log('Payment failed to complete!',error.message);
     } else {
         console.log('Payment completed successfully!');
+        const notify = CustomToast("Payment completed successfully!");
+        notify();
       // Your customer will be redirected to your `return_url`. For some payment
       // methods like iDEAL, your customer will be redirected to an intermediate
       // site first to authorize the payment, then redirected to the `return_url`.
@@ -65,9 +68,9 @@ export const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{minWidth:'340px'}}>
       <PaymentElement />
-      <button type="submit" disabled={!stripe || !elements}>
+      <button type="submit" className='btn' disabled={!stripe || !elements}>
         Pay
       </button>
       {/* Show error message to your customers */}

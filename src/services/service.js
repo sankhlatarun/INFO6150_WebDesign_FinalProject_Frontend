@@ -5,26 +5,54 @@ function getServicesForStripePayment(amount) {
     "pk_test_51OK217Eub5KRjd22doJowfB4O3E0jIuekmGqDRXxtT15ECnkevRwCKwyknyMutwRgg9u1F05BNCC4pWuvwOhyVeQ00tncQ8Srl"
   );
 
-  const options = {
-    mode: "payment",
-    amount: amount,
-    currency: "usd",
-    clientSecret:
-      "pi_3OKBOsEub5KRjd221k41UF96_secret_yQxyVrC4vVakkwTCnYNoLLzZ2",
-    // Fully customizable with appearance API.
-    appearance: {
-      /*...*/
-    },
-  };
+  let clientSecret = '';
 
-  return [options, stripePromise];
+
+  const postData ={
+    "amount": amount,
+    "currency": "usd",
+    "automatic_payment_methods": {
+      "enabled": true
+    }
+  }
+  fetch('https://dream-travels.onrender.com/secret', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(postData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Secret Data:', data);
+                    clientSecret = data.client_secret;
+
+                    const options = {
+                      mode: "payment",
+                      amount: amount,
+                      currency: "usd",
+                      clientSecret: clientSecret,
+                      // Fully customizable with appearance API.
+                      appearance: {
+                        /*...*/
+                      },
+                    };
+                  
+                    return [options, stripePromise];
+                })
+                .catch(error => console.error('Error adding hotel:', error));
+  
+
+
 }
 
 async function getAllHotels(setData, setLoading, setError) {
   try {
     
     
-    const data = await fetch("http://dream-travels.onrender.com/hotels/getHotels");
+    const data = await fetch("https://dream-travels.onrender.com/hotels/getHotels",{
+
+    });
     const response = await data.json();
     setData(response);
     setLoading(false);
