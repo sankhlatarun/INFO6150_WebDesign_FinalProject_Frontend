@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { error, success } from "../Utils/notification";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-
+import img from "./../assets/hotel/Travel insurance-rafiki.svg"
 function Signup() {
   const initialData = {
     email: "",
@@ -60,7 +60,8 @@ function Signup() {
   };
   return (
     <>
-      <div className={styles.login}>
+      <div className={styles.login}  style={{maxWidth:'600px',width:'80%'}}>
+        <img src={img} />
         <h1 className="h3 mb-3 fw-bold">Sign Up</h1>
         <div>
           <p style={{ textAlign: "left", marginBottom: "0px" }}>Email</p>

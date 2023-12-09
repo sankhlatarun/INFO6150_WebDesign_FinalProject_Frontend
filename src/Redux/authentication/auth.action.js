@@ -20,10 +20,13 @@ export const loginAPI = (data, navigate) => async (dispatch) => {
       Cookies.set("userid", response.data.message.user._id, {
         expires: new Date(new Date().getTime() + 60 * 60 * 1000),
       });
-      Cookies.set("user", response.data.message.user, {
+      Cookies.set("userRole", response.data.message.user.role, {
         expires: new Date(new Date().getTime() + 60 * 60 * 1000),
       });
-      Cookies.set("usergender", response.data.message.user.gender, {
+      Cookies.set("userEmail", response.data.message.user.email, {
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+      });
+      Cookies.set("userGender", response.data.message.user.gender, {
         expires: new Date(new Date().getTime() + 60 * 60 * 1000),
       });
       dispatch({
@@ -31,11 +34,19 @@ export const loginAPI = (data, navigate) => async (dispatch) => {
         payload: response.data,
       });
       success("Sign In successfully");
+      console.log(response.data.message.user.role);
+      console.log(response.data.message.user);
       if(response.data.message.user.role === "admin"){
         navigate("/admin");
+        window.location.href = "./../admin";
+        console.log("admin");
         return;
+      }else{
+        console.log("user");
+        window.location.href = "./../";
+
+        navigate("/");
       }
-      navigate("/");
     }
   } catch (error) {
     dispatch({

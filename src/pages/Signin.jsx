@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { loginAPI } from "../Redux/authentication/auth.action";
 import { error } from "../Utils/notification";
+import img from "./../assets/hotel/booked_re_vtod.svg"
 
 function Signin() {
   const isAuthenticated = useSelector(
@@ -48,7 +49,8 @@ function Signin() {
 
   return (
     <>
-      <div className={styles.login}>
+      <div className={styles.login} style={{maxWidth:'600px',width:'80%'}}>
+        <img src={img} alt="login" style={{width:'100%',height:'300px'}}/>
         <h1 className="h3 mb-3 fw-bold">Sign In</h1>
         <div>
           <p style={{ textAlign: "left", marginBottom: "0px" }}>Email</p>

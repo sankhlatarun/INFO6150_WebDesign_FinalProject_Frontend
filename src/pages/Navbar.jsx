@@ -40,7 +40,7 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto my-2 my-lg-0">
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className="nav-link active m-1"
                 aria-current="page"
                 style={{ cursor: "pointer" }}
                 onClick={() => navigate("/")}
@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className="nav-link active  m-1"
                 style={{ cursor: "pointer" }}
                 onClick={() => navigate(`/myticket`)}
               >
