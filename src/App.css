@@ -290,3 +290,8 @@ body {
 .pt-7{
   padding-top: 6rem !important;
 }
+
+.login_container{
+  max-width: 600px;
+  width: 80%;
+}

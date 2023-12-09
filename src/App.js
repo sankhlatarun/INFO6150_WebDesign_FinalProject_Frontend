@@ -2,8 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomHeader from './components/CustomHeader';
-import CustomFooter from './components/CustomFooter';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import { useState } from 'react';
 import Layout from './pages/Layout';
@@ -17,21 +16,18 @@ import NotFound from './pages/NotFound';
 import IndividualHotelPage from './pages/hotel/IndividualHotelPage';
 import UpdateHotel from './pages/hotel/UpdateHotel';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { ToastContainer, toast } from 'react-toastify';
-import AllRoutes from "./Routes/AllRoutes";
-import { ToastContainer } from "react-toastify";
-import AppProvider from './Redux/store/store';
+import { ToastContainer } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-import Home from './pages/BusHome';
 import BusHome from './pages/BusHome';
 import { Private } from './Routes/Private';
 import Bookseat from './pages/Bookseat';
 import Details from './pages/Details';
 import Myticket from './pages/Myticket';
 import SelectBus from './pages/SelectBus';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminBus from './pages/AdminBus';
 
 function App() {
   const defaultUser = {
@@ -50,15 +46,13 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Dashboard />} />
-          <Route path='/login' element={<LoginScreen />} />
           <Route path="/hotels" element={<Hotel />} />
           <Route path="admin/hotels" element={<AdminHotel />} />
           <Route path="admin/newhotel" element={<AddNewHotel />} />
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path='hotel/:id' element={<IndividualHotelPage />} />
           <Route path="admin/updatehotel/:id" element={<UpdateHotel />} />
-          <Route path="/notfound" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
+         
        
    
           <Route path="signin" element={<Signin />}></Route>
@@ -86,7 +80,10 @@ function App() {
               }
             />
             <Route path="admin/hotels" element={<AdminHotel />} />
-
+            <Route path="admin" element={<AdminDashboard />} />
+              <Route path="admin/bus" element={<AdminBus />} />
+               <Route path="/notfound" element={<NotFound />} />
+               <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 

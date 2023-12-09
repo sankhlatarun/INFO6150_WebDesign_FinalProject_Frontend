@@ -33,21 +33,21 @@ const CustomHeader = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link m-2" to="/">Home</Link>
                 {/* <a className="nav-link" href="./index.html">Home</a> */}
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 {/* <a className="nav-link" href="./hotels">Hotels</a> */}
-                <Link className="nav-link" to="/hotels">Hotels</Link>
+                <Link className="nav-link m-2" to="/hotels">Hotels</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/bus">Busses</Link>
+                <Link className="nav-link m-2" to="/bus">Busses</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./Assignment6-Flight/FlightIndex.html">Flights</a>
+                <a className="nav-link m-2" href="./Assignment6-Flight/FlightIndex.html">Flights</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#contact">Contact US</a>
+                <a className="nav-link m-2" href="#contact">Contact US</a>
               </li>
               <li>
                 {
@@ -57,7 +57,7 @@ const CustomHeader = () => {
                 }
 
               </li>
-              {
+              {/* {
                 isAuthenticated ? (
                   <li>
                     <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
@@ -69,19 +69,19 @@ const CustomHeader = () => {
                     <button onClick={() => loginWithRedirect()}>Log In</button>
                   </li>
                 )
-              }
+              } */}
 
               <li>
               <div>
             {token ? (
               <button
-                className="btn btn-outline-success"
+                className="m-2 p-1 btn-outline-success"
                 style={{
-                  backgroundColor: "blue",
+                  // backgroundColor: "blue",
                   borderRadius: "10px",
-                  border: "2px solid",
+                  border: "none",
                   marginRight: "8px",
-                  color: "white",
+                  color: "black",
                 }}
                 onClick={() => handlelogout()}
               >
@@ -91,14 +91,14 @@ const CustomHeader = () => {
               <div>
                 {" "}
                 <button
-                  className="btn btn-outline-success"
+                  className="m-2 p-1 btn-outline-success"
                   onClick={() => navigate("/signin")}
                   style={{
-                    backgroundColor: "green",
+                    // backgroundColor: "green",
                     borderRadius: "10px",
-                    border: "2px solid",
+                    border: "none",
                     marginRight: "8px",
-                    color: "white",
+                    color: "black",
                   }}
                 >
                   Sign In
