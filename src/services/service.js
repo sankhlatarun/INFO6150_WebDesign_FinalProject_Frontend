@@ -24,12 +24,12 @@ async function getAllHotels(setData, setLoading, setError) {
   try {
     
     
-    const data = await fetch("http://dream-travels.onrender.com/hotels/getHotels");
+    const data = await fetch("https://dream-travels.onrender.com/hotels/getHotels");
     const response = await data.json();
     setData(response);
     setLoading(false);
     console.log(response);
-  } catch (err) {
+  } catch (err) { 
     setError(err);
     setLoading(false);
   }
