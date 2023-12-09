@@ -2,9 +2,15 @@ import React from 'react'
 
 const CustomFooter = () => {
   return (
-    <div style={{background:'grey',padding:'1em'}}>
-    CustomFooter     
-</div>
+     <>
+      <footer class="bg-dark p-2 text-center">
+          <div class="container">
+            <p class="text-white">
+              All Right Reserved DREAM TRAVEL
+            </p>
+          </div>
+        </footer>
+     </>
   )
 }
 
