@@ -70,10 +70,113 @@ function Slider() {
 
   const handleGetRequest = async () => {
     try {
-      let res = await axios.post("https://blue-bus.onrender.com/city", {
+      let res = await axios.post("https://dream-travels.onrender.com/city", {
         source,
       });
       res = res.data;
+      res= [{
+        "_id": {
+          "$oid": "640082f21efcfc116f406aee"
+        },
+        "name": "Mumbai",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406aef"
+        },
+        "name": "Delhi",
+        "state": "Delhi"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af0"
+        },
+        "name": "Bengaluru",
+        "state": "Karnataka"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af1"
+        },
+        "name": "Ahmedabad",
+        "state": "Gujarat"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af2"
+        },
+        "name": "Hyderabad",
+        "state": "Telangana"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af3"
+        },
+        "name": "Chennai",
+        "state": "Tamil Nadu"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af4"
+        },
+        "name": "Kolkata",
+        "state": "West Bengal"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af5"
+        },
+        "name": "Pune",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af6"
+        },
+        "name": "Jaipur",
+        "state": "Rajasthan"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af7"
+        },
+        "name": "Surat",
+        "state": "Gujarat"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af8"
+        },
+        "name": "Lucknow",
+        "state": "Uttar Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af9"
+        },
+        "name": "Kanpur",
+        "state": "Uttar Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afa"
+        },
+        "name": "Nagpur",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afb"
+        },
+        "name": "Patna",
+        "state": "Bihar"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afc"
+        },
+        "name": "Indore",
+        "state": "Madhya Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afd"
+        },
+        "name": "Thane",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afe"
+        },
+        "name": "Bhopal",
+        "state": "Madhya Pradesh"
+      }];
       setOutput(res);
       setShowNames(true);
       // console.log(output);
@@ -84,11 +187,114 @@ function Slider() {
 
   const handleGetRequestdes = async () => {
     try {
-      let res = await axios.post("https://blue-bus.onrender.com/city", {
+      let res = await axios.post("https://dream-travels.onrender.com/city", {
         destination,
       });
-      res = res.data;
 
+      res = res.data;
+      res = [{
+        "_id": {
+          "$oid": "640082f21efcfc116f406aee"
+        },
+        "name": "Mumbai",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406aef"
+        },
+        "name": "Delhi",
+        "state": "Delhi"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af0"
+        },
+        "name": "Bengaluru",
+        "state": "Karnataka"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af1"
+        },
+        "name": "Ahmedabad",
+        "state": "Gujarat"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af2"
+        },
+        "name": "Hyderabad",
+        "state": "Telangana"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af3"
+        },
+        "name": "Chennai",
+        "state": "Tamil Nadu"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af4"
+        },
+        "name": "Kolkata",
+        "state": "West Bengal"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af5"
+        },
+        "name": "Pune",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af6"
+        },
+        "name": "Jaipur",
+        "state": "Rajasthan"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af7"
+        },
+        "name": "Surat",
+        "state": "Gujarat"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af8"
+        },
+        "name": "Lucknow",
+        "state": "Uttar Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406af9"
+        },
+        "name": "Kanpur",
+        "state": "Uttar Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afa"
+        },
+        "name": "Nagpur",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afb"
+        },
+        "name": "Patna",
+        "state": "Bihar"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afc"
+        },
+        "name": "Indore",
+        "state": "Madhya Pradesh"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afd"
+        },
+        "name": "Thane",
+        "state": "Maharashtra"
+      },{
+        "_id": {
+          "$oid": "640082f21efcfc116f406afe"
+        },
+        "name": "Bhopal",
+        "state": "Madhya Pradesh"
+      }];
       setOutputdes(res);
       setShowNamesdes(true);
     } catch (err) {
@@ -119,14 +325,14 @@ function Slider() {
 
   async function getcityinfo(source, destination, date) {
     try {
-      let res = await axios.post("https://blue-bus.onrender.com/city/showcity", {
+      let res = await axios.post("https://dream-travels.onrender.com/city/showcity", {
         source,
         destination,
         date,
       });
       if (res.data.status === "success") {
         navigate({
-          pathname: "/selectbus",
+          pathname: "bus/selectbus",
           search: `?from=${source}&to=${destination}&date=${date}`,
         });
       } else {
@@ -162,7 +368,7 @@ function Slider() {
           className="carousel slide"
           data-bs-ride="carousel"
         >
-          <div className="carousel-inner">
+          <div className="carousel-inner" style={{opacity:'0.6'}}>
 
             <div className="carousel-item active" data-bs-interval="3000">
               {" "}
@@ -233,7 +439,7 @@ function Slider() {
             <span className="visually-hidden">Next</span>
           )}
         </div>
-        <div className={styles.data}>
+        <div className={styles.data} style={{background:'white',padding:'10px',borderRadius:'10px'}}>
           <input
             type="text"
             placeholder="Source"

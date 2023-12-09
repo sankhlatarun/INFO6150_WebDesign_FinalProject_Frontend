@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { error } from "../Utils/notification";
 function SelectBus() {
   let [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
   const [wentwrong, setwentwrong] = useState(false);
 
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function SelectBus() {
   async function getdata(from, to, date) {
     // console.log(from, to, date);
     try {
-      let res = await axios.post("https://blue-bus.onrender.com/bus/getall", {
+      let res = await axios.post("https://dream-travels.onrender.com/bus/getall", {
         from,
         to,
         date,

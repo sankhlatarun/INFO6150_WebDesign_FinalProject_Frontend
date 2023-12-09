@@ -88,16 +88,14 @@ function App() {
           <Route path="admin/hotels" element={<AdminHotel />} />
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/bus" element={<AdminBus />} />
+    
+   
+      
+          <Route path='flight' element={ <FlightDashBoard/>} />
+          <Route path='flight/search' element={<SearchFlights/>}/>
+          <Route path='flight/bookings' element={<UserBookings/>}/>
           <Route path="/notfound" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
-        </Route>
-
-        {/* flights */}
-        <Route path = '/flight' >
-          <Route index element={ <FlightDashBoard/>} />
-          <Route path='search' element={<SearchFlights/>}/>
-          <Route path='bookings' element={<UserBookings/>}/>
-          
         </Route>
 
       </Routes>
