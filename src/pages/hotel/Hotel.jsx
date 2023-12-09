@@ -119,7 +119,7 @@ const Hotel = () => {
         <Tabs
           defaultActiveKey="hotel"
           id="uncontrolled-tab-example"
-          className="mb-3 flex-space-evenly fw-700"
+          className="mb-3 flex-space-evenly fw-700 mt-4"
           style={{ fontSize: '1.25rem' }}
         >
           <Tab eventKey="hotel" title="Hotel">
