@@ -286,3 +286,7 @@ body {
 .uppercase{
   text-transform: uppercase;
 }
+
+.pt-7{
+  padding-top: 6rem !important;
+}

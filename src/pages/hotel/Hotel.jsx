@@ -74,7 +74,7 @@ const Hotel = () => {
   return (
 
 
-    <div className='layout_full main_page_hotels'>
+    <div className='layout_full main_page_hotels pt-7'>
       <div className='page'>
         <h3 className='runner' style={{ color: '#5d4f97' }}>Indulge in Unforgettable Moments: Where Comfort Meets Elegance!!</h3>
         <img className='logo pointer' src={logo} />
