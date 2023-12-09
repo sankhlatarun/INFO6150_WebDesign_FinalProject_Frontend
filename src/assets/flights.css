@@ -1,0 +1,104 @@
+
+
+.flightSelector{
+    background: linear-gradient(rgb(6,rgb(13, 13, 146)72), rgb(28, 28, 189), to down);
+}
+
+/* .body{
+    background-image: url('/images/bodybg.jpg');
+} */
+
+.cover{
+    background: url('./flightImages/flight.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bookCover{
+    background-color: rgb(245, 245, 246);
+    border-radius  : 10px;
+    max-width: 80%;
+    padding: 10px;
+    /* opacity: 0.9; */
+    background-color: rgb(75, 75, 205);
+}
+
+/* .contain{
+    background-image:linear-gradient(rgb(18, 18, 117),rgb(58, 58, 169),to down);
+} */
+
+.selects{
+    display: inline;
+}
+
+/* .maps{
+    background-color: rgb(37, 36, 36);
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+.cover-head{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 5rem;
+}
+
+.offer_cards{
+    display: flex;
+}
+
+.card_style{
+    color: green;
+    font-weight: bolder;
+}
+
+#accordion-head{
+    
+    font-weight: bolder;
+}
+
+#accordion-head:focus{
+    background-color: orangered;
+}
+
+.cover-head2{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+.reviews{
+    background-color: #f2f1f1;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .progress_bar{
+        width: 5rem;
+        height: 0.2rem;
+        border: #0edb3e;
+        background-color: #11c23b;
+  }
