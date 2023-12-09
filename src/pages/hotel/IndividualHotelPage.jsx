@@ -8,6 +8,7 @@ import './../../App.css';
 import CustomCloudinaryImage from '../../components/CustomCloudinaryImage';
 import Map from './Map';
 import CustomToast from '../../components/CustomToast';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 const IndividualHotelPage = () => {
@@ -16,7 +17,7 @@ const IndividualHotelPage = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [hotel, setHotel] = useState({});
-  
+  const [clientSecret, setClientSecret] = useState('');
   const par = useParams();
   console.log(par.id);
 
@@ -34,9 +35,55 @@ const IndividualHotelPage = () => {
   }, [data]);
 
 
+     
+  useEffect(() => {
+    const stripePromise = loadStripe(
+      "pk_test_51OK217Eub5KRjd22doJowfB4O3E0jIuekmGqDRXxtT15ECnkevRwCKwyknyMutwRgg9u1F05BNCC4pWuvwOhyVeQ00tncQ8Srl"
+    );
+  
+    let clientSecret = '';
+  
+  
+    const postData ={
+      "amount":  hotel.rate ? (Number(hotel.rate) *100) : (hotel._id ? Number(hotel?._id[1] + hotel?._id[1]) *100 : 100),
+      "currency": "usd",
+      "automatic_payment_methods": {
+        "enabled": true
+      }
+    }
+    fetch('https://dream-travels.onrender.com/secret', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(postData),
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      console.log('Secret Data:', data);
+                      clientSecret = data.client_secret;
+                      setClientSecret(clientSecret );
+                      console.log("rate",hotel.rate);
+                      const options = {
+                        mode: "payment",
+                        amount: hotel.rate ? (Number(hotel.rate) *100) : (hotel._id ? Number(hotel?._id[1] + hotel?._id[1]) *100 : 100),
+                        currency: "usd",
+                        clientSecret: clientSecret,
+                        // Fully customizable with appearance API.
+                        appearance: {
+                          /*...*/
+                        },
+                      };
+               
+                      // return [options, stripePromise];
+                  })
+                  .catch(error => console.error('Error adding hotel:', error));
+    
+  }, [hotel]);
+
   function bookHotel() {
     const notify = CustomToast("Added to Bookings");
-    navigate('./../../checkout/' +hotel.rate );
+    navigate('./../../checkout/' +hotel.rate+"/"+clientSecret );
     notify();   
   }
   return (
@@ -74,7 +121,7 @@ const IndividualHotelPage = () => {
             <h5>Country:
             <span className="fs_2"> {hotel.country}</span> </h5>
             <h5>Rate: 
-            <span className="fs_2"> {hotel.rate}</span></h5>
+            <span className="fs_2"> {hotel?.rate ? hotel?.rate : (hotel._id ? hotel?._id[1] + hotel?._id[1] : 100)}</span></h5>
             <h5>Cost: 
             <span className="fs_2"> {hotel.rooms}</span></h5>
             <h5> Number of Photos Available:
