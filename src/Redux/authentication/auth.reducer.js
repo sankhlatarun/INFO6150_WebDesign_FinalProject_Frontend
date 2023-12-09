@@ -26,6 +26,7 @@ export const authReducer = (state = authInitalState, { type, payload }) => {
           ...state.data,
           token: Cookies.get("jwttoken"),
           userid: Cookies.get("userid"),
+          user: Cookies.get("user"),
           isAuthenticated: true,
         },
       };

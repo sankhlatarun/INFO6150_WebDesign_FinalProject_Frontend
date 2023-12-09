@@ -33,9 +33,17 @@ function Signup() {
     ) {
       error("Plaese Fill All The Details");
     } else {
+      signUpcreds['role'] = "user";
+      signUpcreds["avatar"]= "cld-sample"; 
+      signUpcreds["address"]= "";
+      signUpcreds["city"]= "";
+      signUpcreds["state"]= "";
+      signUpcreds["country"]= "";
+      signUpcreds["zip"]= "";
+      signUpcreds["phone"]= "";
       try {
         let response = await axios.post(
-          "https://blue-bus.onrender.com/user/signup",
+          "https://dream-travels.onrender.com/user/signup",
           signUpcreds
         );
         console.log(response);
@@ -94,7 +102,7 @@ function Signup() {
           <option value="female">Female</option>
         </select>
         <button
-          className="w-100 mt-3 btn btn-lg btn-primary"
+          className=" mt-3 btn btn-lg btn-primary"
           onClick={handleSubmit}
         >
           Sign up

@@ -1,7 +1,7 @@
 import Footer from "../pages/Footer";
 import Navbar from "../pages/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
+import Home from "../pages/BusHome";
 import SelectBus from "../pages/SelectBus";
 import Details from "../pages/Details";
 import Signin from "../pages/Signin";
@@ -13,7 +13,7 @@ import Bookseat from "../pages/Bookseat";
 function AllRoutes() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
@@ -44,7 +44,7 @@ function AllRoutes() {
           }
         />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -10,7 +10,7 @@ import { default as Services } from "../components/Landing/Services";
 import { default as Slider } from "../components/Landing/Slider";
 import { removeall } from "../Redux/ticket/ticket.action";
 
-function Home() {
+function BusHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(removeall());
@@ -28,4 +28,4 @@ function Home() {
     </>
   );
 }
-export default Home;
+export default BusHome;

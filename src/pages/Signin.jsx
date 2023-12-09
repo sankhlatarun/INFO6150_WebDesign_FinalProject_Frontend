@@ -14,7 +14,6 @@ function Signin() {
   useEffect(() => {
     if (isAuthenticated) {
       if (location.state && location.state.from) {
-        // console.log(location.state.from);
         navigate(location.state.from, { replace: true });
       } else {
         navigate("/");
@@ -40,6 +39,7 @@ function Signin() {
   };
 
   const handleSubmit = async () => {
+    console.log(signUpcreds);
     if (signUpcreds.email === "" || signUpcreds.password === "") {
       return error("Please enter all required fields");
     }
@@ -83,7 +83,7 @@ function Signin() {
           <Link>Forgot Password</Link>
         </p>
         <button
-          className="w-100  btn btn-lg btn-primary"
+          className=" btn btn-lg btn-primary"
           onClick={handleSubmit}
         >
           Sign In

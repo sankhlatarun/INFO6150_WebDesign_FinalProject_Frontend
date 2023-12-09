@@ -9,8 +9,8 @@ import { error, success } from "../../Utils/notification";
 
 export const loginAPI = (data, navigate) => async (dispatch) => {
   try {
-    let response = await axios.post("https://blue-bus.onrender.com/user/login", data);
-    // console.log(response);
+    let response = await axios.post("https://dream-travels.onrender.com/user/login", data);
+    console.log(response);
     if (response.data.status === "Failed") {
       error(response.data.message);
     } else {
@@ -18,6 +18,9 @@ export const loginAPI = (data, navigate) => async (dispatch) => {
         expires: new Date(new Date().getTime() + 60 * 60 * 1000),
       });
       Cookies.set("userid", response.data.message.user._id, {
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+      });
+      Cookies.set("user", response.data.message.user, {
         expires: new Date(new Date().getTime() + 60 * 60 * 1000),
       });
       Cookies.set("usergender", response.data.message.user.gender, {
@@ -28,6 +31,10 @@ export const loginAPI = (data, navigate) => async (dispatch) => {
         payload: response.data,
       });
       success("Sign In successfully");
+      if(response.data.message.user.role === "admin"){
+        navigate("/admin");
+        return;
+      }
       navigate("/");
     }
   } catch (error) {
