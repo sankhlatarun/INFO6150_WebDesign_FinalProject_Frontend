@@ -2,8 +2,12 @@ import React from 'react'
 import './../App.css';
 import { useNavigate } from 'react-router';
 import img from './../assets/hotel/booked_re_vtod.svg';
+import Cookies from 'js-cookie';
 const AdminDashboard = () => {
     const navigate = useNavigate();
+    if(!Cookies.get("jwttoken")){
+      navigate('./../signup');
+  }
 
   return (
     <div className='page pt-5'>
