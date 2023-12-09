@@ -10,7 +10,7 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className='page pt-5'>
+    <div className='page pt-5 main_page_hotels'>
         <div className='flex flex-wrap p-4 center flex-space-evenly m-auto'>
             <div className='child'>
                 <img src={img} alt="login" style={{width:'100%',height:'300px'}}/>

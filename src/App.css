@@ -299,3 +299,33 @@ body {
   max-width: 600px;
   width: 80%;
 }
+
+.main_page_hotels::before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -5%;
+  right: 30%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, #e5e1f4 0%, #5d4f97 150%);
+  transition: 1.8s ease-in-out;
+  border-radius: 40%;
+  z-index: -1;
+  overflow: hidden;
+  animation: myround 10s infinite;
+  position: absolute;
+
+}
+
+@keyframes myround {
+  0% {
+      transform: translateY(-100%);
+  }
+  50% {
+      transform: translate(75%);
+  }
+  100% {
+      transform: translateY(-100%);
+  }
+}
