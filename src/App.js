@@ -87,6 +87,15 @@ function App() {
           <Route path="/notfound" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+
+        {/* flights */}
+        <Route path = '/flight' >
+          <Route index element={ <FlightDashBoard/>} />
+          <Route path='search' element={<SearchFlights/>}/>
+          <Route path='bookings' element={<UserBookings/>}/>
+          
+        </Route>
+        
       </Routes>
 
       <ToastContainer autoClose={3000} />
