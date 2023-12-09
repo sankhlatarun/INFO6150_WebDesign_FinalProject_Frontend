@@ -53,11 +53,11 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="/hotels" element={<Hotel />} />
-          <Route path="admin/hotels" element={<AdminHotel />} />
-          <Route path="admin/newhotel" element={<AddNewHotel />} />
-          <Route path="checkout/:amount/:clientSecret" element={<CheckoutPage />} />
-          <Route path='hotel/:id' element={<IndividualHotelPage />} />
-          <Route path="admin/updatehotel/:id" element={<UpdateHotel />} />
+          <Route path="/admin/hotels" element={<AdminHotel />} />
+          <Route path="/admin/newhotel" element={<AddNewHotel />} />
+          <Route path="/checkout/:amount/:clientSecret" element={<CheckoutPage />} />
+          <Route path='/hotel/:id' element={<IndividualHotelPage />} />
+          <Route path="/admin/updatehotel/:id" element={<UpdateHotel />} />
 
 
 
@@ -85,15 +85,15 @@ function App() {
             </Private>
           }
           />
-          <Route path="admin/hotels" element={<AdminHotel />} />
-          <Route path="admin" element={<AdminDashboard />} />
-          <Route path="admin/bus" element={<AdminBus />} />
+          <Route path="/admin/hotels" element={<AdminHotel />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/bus" element={<AdminBus />} />
     
    
       
-          <Route path='flight' element={ <FlightDashBoard/>} />
-          <Route path='flight/search' element={<SearchFlights/>}/>
-          <Route path='flight/bookings' element={<UserBookings/>}/>
+          <Route path='/flight' element={ <FlightDashBoard/>} />
+          <Route path='/flight/search' element={<SearchFlights/>}/>
+          <Route path='/flight/bookings' element={<UserBookings/>}/>
           <Route path="/notfound" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Route>
